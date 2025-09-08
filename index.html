@@ -5,10 +5,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SOLIMAN RAGIH</title>
   <style>
-    /* نموذج البحث داخل الرأس */
+  /* نموذج البحث داخل الرأس */
 header form {
   margin-top: 15px;
   text-align: center; /* لتوسيط النموذج */
+}
+
+header input[type="text"] {
+  padding: 8px 10px;
+  width: 250px;
+  border: none;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+header button {
+  padding: 8px 12px;
+  background: #fff;
+  color: #655148;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+header button:hover {
+  background: #f0f0f0;
+}
+
+/* تنسيق نتائج البحث */
+#searchResults p {
+  background: #f0f0f0;
+  padding: 8px 10px;
+  border-radius: 5px;
+  margin: 5px 0;
+  color: #655148;
+}
+
 }
 
 header input[type="text"] {
@@ -88,11 +121,19 @@ header button:hover {
   <header>
     <h1>مرحباً بكم في SOLIMAN RAGIH</h1>
     <p>هذا مثال لموقع إلكتروني بسيط</p>
-    <!-- مستطيل البحث -->
-<form id="searchForm" onsubmit="searchFunction(event)">
-  <input type="text" id="searchInput" placeholder="ابحث هنا..." required>
-  <button type="submit">🔍</button>
-</form>
+   <header>
+  <h1>مرحباً بكم في SOLIMAN RAGIH</h1>
+  <p>هذا مثال لموقع إلكتروني بسيط</p>
+
+  <!-- مستطيل البحث -->
+  <form id="searchForm" onsubmit="searchFunction(event)">
+    <input type="text" id="searchInput" placeholder="ابحث هنا..." required>
+    <button type="submit">🔍</button>
+  </form>
+
+  <!-- مكان عرض نتائج البحث -->
+  <div id="searchResults" style="margin-top:10px;"></div>
+</header>
 
   </header>
 
@@ -157,11 +198,36 @@ header button:hover {
       alert("بحث عن: " + query);
     }
   </script>
+  <script>
+function searchFunction(event) {
+  event.preventDefault();
+  const query = document.getElementById("searchInput").value.toLowerCase();
+  const sections = document.querySelectorAll("section");
+  const resultsDiv = document.getElementById("searchResults");
+
+  let results = "";
+
+  sections.forEach(sec => {
+    const text = sec.innerText.toLowerCase();
+    if(text.includes(query)) {
+      results += `<p>وجدنا "${query}" في قسم: <strong>${sec.querySelector('h2').innerText}</strong></p>`;
+    }
+  });
+
+  if(results === "") {
+    resultsDiv.innerHTML = `<p>لم يتم العثور على نتائج للبحث: "${query}"</p>`;
+  } else {
+    resultsDiv.innerHTML = results;
+  }
+}
+</script>
+
 </body>
 </html>
 
 </body>
 </html>
+
 
 
 
