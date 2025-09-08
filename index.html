@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>موقعي الإلكتروني</title>
+  <style>
+    body {
+      font-family: "Tahoma", sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
+      color: #333;
+    }
+    header {
+      background: #007bff;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      background: #0056b3;
+    }
+    nav a {
+      color: #fff;
+      padding: 14px 20px;
+      text-decoration: none;
+    }
+    nav a:hover {
+      background: #003d80;
+    }
+    section {
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    footer {
+      text-align: center;
+      background: #222;
+      color: #fff;
+      padding: 15px;
+      margin-top: 20px;
+    }
+    button {
+      background: #007bff;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>مرحباً بكم في موقعي</h1>
+    <p>هذا مثال لموقع إلكتروني بسيط</p>
+  </header>
+
+  <nav>
+    <a href="#home">الرئيسية</a>
+    <a href="#about">من نحن</a>
+    <a href="#services">خدماتنا</a>
+    <a href="#contact">تواصل معنا</a>
+  </nav>
+
+  <section id="home">
+    <h2>الرئيسية</h2>
+    <p>هنا المحتوى الرئيسي لموقعك.</p>
+  </section>
+
+  <section id="about">
+    <h2>من نحن</h2>
+    <p>نص قصير يعرف بالموقع أو النشاط التجاري.</p>
+  </section>
+
+  <section id="services">
+    <h2>خدماتنا</h2>
+    <ul>
+      <li>الخدمة الأولى</li>
+      <li>الخدمة الثانية</li>
+      <li>الخدمة الثالثة</li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h2>تواصل معنا</h2>
+    <form onsubmit="sendMessage(event)">
+      <label>الاسم:</label><br>
+      <input type="text" id="name" required><br><br>
+
+      <label>البريد الإلكتروني:</label><br>
+      <input type="email" id="email" required><br><br>
+
+      <label>رسالتك:</label><br>
+      <textarea id="message" required></textarea><br><br>
+
+      <button type="submit">إرسال</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2025 جميع الحقوق محفوظة</p>
+  </footer>
+
+  <script>
+    function sendMessage(event) {
+      event.preventDefault();
+      alert("تم إرسال رسالتك بنجاح!");
+    }
+  </script>
+</body>
+</html>
